@@ -1,0 +1,156 @@
+* Spacemacs Rocks Episode 2 (Day two)
+
+** Fixes some annoying stuff
+1. make cursor style to bar
+#+BEGIN_SRC
+(setq-default cursor-type 'bar)
+#+END_SRC
+
+2. disable backup file
+#+BEGIN_SRC emacs-lisp
+  (setq make-backup-files nil)
+#+END_SRC
+
+use C-c-' to open another buffer to edit source code.
+Make source code fancy in the org file.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'org)
+  (setq org-src-fontify-natively t)
+#+END_SRC
+
+3. enable recentf-mode
+#+BEGIN_SRC emacs-lisp
+  (require 'recentf)
+  (recentf-mode t)
+  (setq recentf-max-saved-items 50)
+  (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+#+END_SRC
+
+4. bring electric-indent-mode back
+   - default is true, so you'll be won't to set that.
+#+BEGIN_SRC emacs-lisp
+  (electric-indent-mode t)
+#+END_SRC
+
+5. add delete selection mode
+#+BEGIN_SRC emacs-lisp
+  (delete-selection-mode t)
+#+END_SRC
+
+** Make Emacs more fancy
+1. Open with full screen
+#+BEGIN_SRC emacs-lisp
+  (setq initial-frame-alist (quote ((fullscreen . maximized))))
+#+END_SRC
+2. Show match parenthese
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+#+END_SRC
+
+3. Highlight current line
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode t)
+#+END_SRC
+
+** Improve built-in package system
+1. make package system more powerful with Melpa
+   - official site: https://melpa.org/#/getting-started
+   - tuna mirror: https://mirror.tuna.tsinghua.edu.cn/help/elpa/
+2. install a theme (monokai, dracula)
+   - add monokai or dracula to variable `vincent/packages`
+3. install hungry delete mode
+   - add hungry-delete to variable `vincent/packages`
+4. package-list-packages (add/delete/update package)
+   - M-x package-list-packages
+   - If you wanna to install package you can used i to marked or u unmark select package to install until you press x key.
+     1) i mark to install
+     2) u unmark selected package
+     3) x install selected packages
+     4) U update all packages (NOT RECOMMAND)
+     5) You can execute auto remove unused package by M-x pa-a, if Emacs will be remove your used package before previous you installed used by yourself defined variable vincent/packages, you can reference below codes.
+#+BEGIN_SRC emacs-lisp
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("55c2069e99ea18e4751bd5331b245a2752a808e91e09ccec16eb25dadbe06354" default)))
+ '(package-selected-packages (quote (company dracula-theme monokai-theme hungry-delete))))
+
+#+END_SRC
+
+     1) you can also add package-selected-packages in variables below, just like this
+#+BEGIN_SRC emacs-lisp
+(defvar vincent/packages '(
+			   company
+			   dracula-theme
+			   monokai-theme
+			   hungry-delete
+			   ) "Default packages")
+(setq package-selected-packages vincent/packages)
+
+#+END_SRC
+
+1. install and configure smex and ivy mode
+   - smex: when you install counsel you can DELETE this package
+   - ivy
+   - swiper : for search, when you press C-s for somethings you can used C-n/C-p to select you wanna search.
+2. use customize-group to customize the package settings.
+   - M-x customize-group RET your_package_name RET
+     - Company Idle Delay: set to 0.08 and click State: Save for Future Sessions
+     - Company Minimum Prefix Length: set to 1
+       + when started completion you can use M-n/M-p to select you wanted word
+3. install and configure smart parentheses mode.
+
+4. Don't try to update the package daily, the updating process might failed.
+
+(tips: press M-RET to fix the order, you could alse use M-RET to add new headings, cheers!)
+
+** Setup a javascript IDE
+1. Install js2-mode and start to write javascript
+2. Install nodejs-repl to execute code inside Emacs
+   - usage: M-x nodejs-repl
+     * On MacOSX this could be see "Search for program: No such file or directory, node"
+     * Maybe you needs to install this package: exec-path-from-shell
+#+BEGIN_SRC emacs-lisp
+;; is your's OS is MacOSX, you need add below settings
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+#+END_SRC
+   - execute you file: M-x nodejs-repl-send-buffer
+
+** Learn more from Emacs itself
+1. C-h C-f(find-function), C-h C-v(find-variable), C-h C-k(find-function-on-key)
+** Org-mode(Bonus Time)
+*** Agenda files and agenda view
+1. one gtd.org file
+#+BEGIN_SRC emacs-lisp
+  (setq org-agenda-files '("~/org"))
+  (global-set-key (kbd "C-c a") 'org-agenda)
+
+#+END_SRC
+
+*** Some tricks
+- quick auto-completed source code block: S-,-s-TAB (means <sTAB)
+- quick switch to the OrgSrc mode: C-c-' (to do this you must be in source code blocks)
+
+*** Learn how to schedule items and set deadline
+1. C-c C-s : set schedule time
+2. C-c C-d : set event deadline
+3. C-c a : open agenda event list
+   * r : refresh
+   * m : month view
+   * d : daily view
+
+** Exercise
++ M-x info
+
+*** the difference between .emacs and .emacs.d/init.el file
+
+*** try to configure company mode via customize-group
+
