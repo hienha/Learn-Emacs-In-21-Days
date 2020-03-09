@@ -1,0 +1,119 @@
+* Spacemacs Rocks Episode 2 (Day one)
+
+** Install Emacs
+- MacOS
+- Windows
+- Linux
+
+** Go over the Emacs tutorial at least once
+- C-h t to open the tutorial.
+- You need be familiar with cursor movement(C-f/C-b/C-n/C-p/C-a/C-e) and basic editing (C-k)
+- You should be familiar with M(eta), s(uper), S(hift), C(trl)
+- Prefix key(C-h is a prefix key) and C-g
+
+** [2/2] TODO Learn to active some built-in functionality
+*** DONE linum-mode to display line mumbers (M-x linum-mode, repeat again close number display.)
+*** DONE C-x C-f: to open files, C-x C-s to save files. (You could also use you mouse to do all the file operations.)
+  - C-x s: save all files(buffers)
+  - C-x C-w(write-file): save file as to another file
+  - C-h k / C-h v / C-h f (Emacs is a self document, extensible editor.)
+  - C-h m: (describe-mode) Display documentation of current major mode and minor modes.
+  - you should always ask Emacs the right question
+  - The key binding are actually a quick way to command Emacs.
+
+** [25%] TODO Learn some elisp(Emacs Lisp)
+*** TODO use LearnXInYMinutes website to learn emacs lisp.
+*** TODO  at least you know how to define variable, functions
+*** TODO You should know ho wto make a function callable and how to set a key binding for the function
+*** DONE You can exercise in the `*scretch*' buffer, and get result executed by C-x C-e
+1. Notice you must be goto the end of line and then execute that command(C-x C-e)
+   * `;' is the comment identifier, if the comment appear the line center, you can disable *Electric-indent-mode* used (M-x Electric-indent-mode)
+   * (+ 2 3): add two numbers and the result is 5, means 2 + 3
+   * (+ 2 (* 3 4)): equal to 2 + 3 * 4
+2. setq: define a variable
+   * (setq my-name "vincent") ; set a variable my-name
+   * (message my-name)        ; echo the name value
+3. defun: define a function
+   * (defun my-func () 
+       (interactive) ; means you can used the M-x to call this function
+       (message "hello, %s"  my-name)) ; define a function my-func
+   * (my-func) ; execute the function, you must be execute the above line
+4. bind keys to function
+   * (global-set-key (kbd "<f8>") 'my-func) ; NOTICE: that key `f8` must be lower case
+
+** Start to hacking Emacs from the day one!
+- Emacs load file
+  1) ~/.emacs.d/init.el
+  2) ~/.emacs
+- trun off toll-bar
+- turn off scroll-bar
+- show linum-mode
+- turn off splash screen
+- save you config
+- define a function to quickly open you config file.
+
+** Emacs package system in the first glance
+- How to use the built-in Package system of Emacs.
+  * M-x package-install RET company
+  * M-x company-mode to enable company mode in this buffer
+  * when you input something company will be auto completed you words
+  * use M-p/M-n can select the words
+  * Use global company-mode
+    - add `(global-company-mode t)' in your init.el
+- Install company mode and active it.
+- Major mode and minor mode.
+  1) C-h m can list you current buffer all minor modes.
+- Happy hacking. :-)
+
+** Bonus(org-mode basics)
+- GTD: Getting Things Done
+- use `*' to define headings
+- C-c C-t to goggle TODO states, be sure your current line is headings.
+
+** init.el in this duration
+
+; turn off tool bar, menu bar, scroll bar
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+
+; turn electric-indent-mode
+(electric-indent-mode 0)
+
+; display line number
+(global-linum-mode t)
+
+; turn off splash screen
+(setq inhibit-splash-screen t)
+
+; custome to open my init.el file
+(defun open-my-init-file()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(global-set-key (kbd "<f2>") 'open-my-init-file)
+
+; global company mode
+(global-company-mode t)
+
+; remain recent files.
+(recentf-mode t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (company))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
