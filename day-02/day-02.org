@@ -101,7 +101,7 @@ Make source code fancy in the org file.
    - ivy
    - swiper : for search, when you press C-s for somethings you can used C-n/C-p to select you wanna search.
 2. use customize-group to customize the package settings.
-   - M-x customize-group RET your_package_name RET
+   - `M-x customize-group RET your_package_name RET`
      - Company Idle Delay: set to 0.08 and click State: Save for Future Sessions
      - Company Minimum Prefix Length: set to 1
        + when started completion you can use M-n/M-p to select you wanted word
@@ -118,7 +118,7 @@ Make source code fancy in the org file.
      * On MacOSX this could be see "Search for program: No such file or directory, node"
      * Maybe you needs to install this package: exec-path-from-shell
 #+BEGIN_SRC emacs-lisp
-;; is your's OS is MacOSX, you need add below settings
+;; if your's OS is MacOSX, you need add below settings
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
