@@ -1,3 +1,4 @@
+
 * Spacemacs Rocks Episode 2 (Day two)
 
 ** Fixes some annoying stuff
@@ -125,7 +126,10 @@ Make source code fancy in the org file.
    - execute you file: M-x nodejs-repl-send-buffer
 
 ** Learn more from Emacs itself
-1. C-h C-f(find-function), C-h C-v(find-variable), C-h C-k(find-function-on-key)
+- C-h C-f (find-function)
+- C-h C-v (find-variable)
+- C-h C-k (find-function-on-key)
+
 ** Org-mode(Bonus Time)
 *** Agenda files and agenda view
 1. one gtd.org file
