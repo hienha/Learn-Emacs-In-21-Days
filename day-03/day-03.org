@@ -1,0 +1,41 @@
+* Spacemacs Rocks Episode 2(Day Three)
+
+** Split your configurations into multiple files.
+1. Use Git to management your init file
+2. help window is annoying
+#+BEGIN_SRC emacs-lisp
+  (require 'popwin)
+  (popwin-mode t)
+#+END_SRC
+3. load-file, load-path and load
+4. features, provide and require, autoload
+5. naming convention
+   * all of the names should have a prefix
+   * such that the naming conflicts could be minimal.
+6. define your abbrevs
+7. how to organize your configs
+- init-packages.el
+- init-ui.el
+- init-better-defaults.el
+- init-keybindings.el
+- custom.el
+#+BEGIN_SRC emacs-lisp
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+#+END_SRC 
+8. user `counsel-git` to find file in git managed project.
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c p f") 'counsel-git)
+#+END_SRC
+
+** Major mode and minor mode in details
+
+** Better defaults
+
+** Dired mode and file related operations
+
+** Bonous time: Use org-mode literate programming to organize you Emacs configurations.
+
+** Exercise
+1. define C-x C-e in js2-mode to eval js expression after nodejs-repl mode is actived.
+2. Only turn on linum-mode when doing programming (tips: use prog-mode-hook)
+
