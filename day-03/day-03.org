@@ -1,33 +1,69 @@
 * Spacemacs Rocks Episode 2(Day Three)
 
 ** Split your configurations into multiple files.
-1. Use Git to management your init file
-2. help window is annoying
++ Use Git to management your init file
++ help window is annoying
 #+BEGIN_SRC emacs-lisp
   (require 'popwin)
   (popwin-mode t)
 #+END_SRC
-3. load-file, load-path and load
-4. features, provide and require, autoload
-5. naming convention
-   * all of the names should have a prefix
-   * such that the naming conflicts could be minimal.
-6. define your abbrevs
-7. how to organize your configs
-- init-packages.el
-- init-ui.el
-- init-better-defaults.el
-- init-keybindings.el
-- custom.el
++ load-file, load-path and load
+  - refer: http://ergoemacs.org/emacs/elisp_library_system.html
+  - load: is the general function for loading a file
+  - load-file: load one specific file. The file name argument should contain file name extension, such .el .elc
+  - load-path: it's a variable, This variable may be risky if used as a file-local variable. 
++ features, provide and require, autoload
+  - refer: http://ergoemacs.org/emacs/elisp_feature_name.html
+  - features: is a global variable that represent available features. Its value is a list of elisp symbols.
+  - provide: A elisp package usually has (provide 'symbol_name') at the end. When this code is evaluated, emacs will add the symbol name to the features list.
+  - require: Load a package if it has not already been loaded by checking the features variable
+    * when the code (require 'symbol_name) is called, emacs checks if that symbol name is already in the features list, if not, load it(emacs will guess a file name based on the symbol name, Or the require function may specify a file name in the 2nd argument.)
+    * require checks if the symbol FEATURE is in variable features, if not, then it calls load to load it.
+      - file name is guessed from the feature name FEATURE, or specified in the option argument
+    * require is best used in elisp libraries or scripts, similar to other language's "require" or "import"
+  - autoload: Load a file only when a function is called
+    + autoload associates a function name with a file path. When the function is called, load the file, and execute the function.
+    + if you are writing a major mode, have your package installation go by autoload if possible. It saves start time.
+  - library: elisp file(s) containing a collection of useful stuff. Forexample, the command comment-dwim is defined in newcomment.el, which is a library or function
+  - package: any useful elisp library for emacs users. Forexample: major mode or minor mode
++ naming convention
+  * all of the names should have a prefix, e.g. vincent/my-name
+  * such that the naming conflicts could be minimal.
++ define your abbrevs
+  - when you accomplish the flow settings in your init file, you can use 'vct SPC' input vincent
 #+BEGIN_SRC emacs-lisp
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (abbrev-mode t)
+  (define-abbrev-table 'global-abbrev-table '(
+					      ;; signature
+					      ("vct" "vincent")
+					      ;; annie
+					      ("ann" "annie")
+					      ;; emacs regex
+					      ))
+#+END_SRC
++ how to organize your configs
+  - init-packages.el
+  - init-ui.el
+  - init-better-defaults.el
+  - init-keybindings.el
+  - custom.el
+#+BEGIN_SRC emacs-lisp
+  (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
+  (load-file custom-file)
 #+END_SRC 
-8. user `counsel-git` to find file in git managed project.
++ user `counsel-git` to find file in git managed project.
+  - find file more effectively in your git repository
 #+BEGIN_SRC emacs-lisp
+  ;; CPF: Customize Project Find
   (global-set-key (kbd "C-c p f") 'counsel-git)
 #+END_SRC
 
 ** Major mode and minor mode in details
+1. Conventions
+   * text-mode / special-mode / prog-mode
+   * naming: xxx-mode, xxx-mode-key-map, xxx-mode-hook
+2. Mode key map and mode hook
+3. Let's take a look at package in elpa (company)
 
 ** Better defaults
 
