@@ -4,16 +4,17 @@
 
 ** Day 01
 
-*** Emacs install
-*** Read Emacs Tutorial
-*** Learning some Emacs Lisp syntax
-*** How to used built-in function
-*** How to get some help from Emacs self
-*** Custom your self `init.el` file
-*** Install package `company`
-*** Emacs org-mode
++ Emacs install
++ Read Emacs Tutorial
++ Learning some Emacs Lisp syntax
++ How to used built-in function
++ How to get some help from Emacs self
++ Custom your self `init.el` file
++ Install package `company`
++ Emacs org-mode
 
-## Day 2
+
+** Day 02
 
 *** Fix some anoying stuff
   - 1. make cursor style to bar
@@ -51,7 +52,8 @@
   - Agenda files and genda view
   - Learn how to schedule items and set deadline
     * Schedule: C-c C-s
-    * Dead Line: C-c C-d
+
+   * text-mode / special-mode / prog-mode    * Dead Line: C-c C-d
     
 *** Exercise
   - M-x info
