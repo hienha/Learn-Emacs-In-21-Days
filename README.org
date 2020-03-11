@@ -1,32 +1,33 @@
-# reimagined-octo-train
-Learn Emacs in 21 Days from zilongshanren
+* reimagined-octo-train
 
-## Day 1
++ Learn Emacs in 21 Days from zilongshanren -- by Vincent
 
-* Emacs install
-* Read Emacs Tutorial
-* Learning some Emacs Lisp syntax
-* How to used built-in function
-* How to get some help from Emacs self
-* Custom your self `init.el` file
-* Install package `company`
-* Emacs org-mode
+** Day 01
+
+*** Emacs install
+*** Read Emacs Tutorial
+*** Learning some Emacs Lisp syntax
+*** How to used built-in function
+*** How to get some help from Emacs self
+*** Custom your self `init.el` file
+*** Install package `company`
+*** Emacs org-mode
 
 ## Day 2
 
-* Fix some anoying stuff
+*** Fix some anoying stuff
   - 1. make cursor style to bar
   - 2. disable backup file
   - 3. enable recentf-mode
   - 4. bring eletric-indent-mode back (Default is True)
   - 5. add `delete selection mode`
 
-* Make Emacs more fancy
+*** Make Emacs more fancy
   - 1. open Emacs with full screen
   - 2. show match parentheses
   - 3. highlight current line
 
-* Improve built-in package system
+*** Improve built-in package system
   - 1. make package system more powerful with MELPA source.
   - 2. install a theme, e.g. dracula/monokai (you can seach that from
   : https://melpa.org/#/getting-started)
@@ -37,20 +38,76 @@ Learn Emacs in 21 Days from zilongshanren
   - 7. install and configure smart parentheses mode
   - 8. NOTICE: often you won't need to update packages, sometimes will occur errors.
   
-* Setup a JavaScript IDE
+*** Setup a JavaScript IDE
   - install js2-mode and start to write javascript
   - install nodejs-repl to execute code inside Emacs
   
-* Learn more from Emacs itself
+*** Learn more from Emacs itself
   - C-h C-f : find function
   - C-h C-v : find variable
   - C-h C-k : find function on key
 
-* Org-mode: GTD
+*** Org-mode: GTD
   - Agenda files and genda view
   - Learn how to schedule items and set deadline
     * Schedule: C-c C-s
     * Dead Line: C-c C-d
     
-* Exercise
+*** Exercise
   - M-x info
+
+
+** Day 02
+
+*** Fixes some annoying stuff
+1. make cursor style to bar
+2. disable backup file
+3. enable recentf-mode
+4. bring electric-indent-mode back
+5. add delete selection mode
+
+*** Make Emacs more fancy
+1. Open with full screen
+2. Show match parenthese
+3. Highlight current line
+
+*** Improve built-in package system
+1. make package system more powerful with Melpa
+2. install a theme (monokai, dracula)
+3. install hungry delete mode
+4. package-list-packages (add/delete/update package)
+
+*** Setup a javascript IDE
+1. Install js2-mode and start to write javascript
+2. Install nodejs-repl to execute code inside Emacs
+
+*** Learn more from Emacs itself
+- C-h C-f (find-function)
+- C-h C-v (find-variable)
+- C-h C-k (find-function-on-key)
+
+*** Org-mode(Bonus Time)
+**** Agenda files and agenda 
+**** Learn how to schedule items and set deadline
+
+
+** Day 03
+
+*** Split your configurations into multiple files
++ Use Git to management your init file
++ help window is annoying
++ load-file, load-path and load
++ features, provide and require, autoload
++ naming convention
++ define your abbrevs
++ user `counsel-git` to find file in git managed project
+
+*** Major mode and minor mode in details
++ Conventions
++ Mode key map and mode hook
++ Let's take a look at package in elpa (company)
+
+*** Better defaults
+*** Dired mode and file related operations
+*** Bonous time: Use org-mode literate programming to organize you Emacs configurations
+*** Exercise
