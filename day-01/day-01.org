@@ -70,7 +70,7 @@
 - use `*' to define headings
 - C-c C-t to goggle TODO states, be sure your current line is headings.
 
-** init.el in this duration
+** init.el in this stage.
 #+BEGIN_SRC emacs-lisp
 ; turn off tool bar, menu bar, scroll bar
 
