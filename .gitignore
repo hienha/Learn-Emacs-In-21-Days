@@ -5,3 +5,4 @@ recentf
 .cache
 abbrev_defs
 .git
+.DS_Store
