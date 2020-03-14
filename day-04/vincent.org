@@ -1,0 +1,23 @@
+* Emacs文学编程
+
+** 初始化所有的Package
+#+BEGIN_SRC emacs-lisp
+  (package-initialize)
+
+#+END_SRC
+
+** 配置LoadPath
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/lisp")
+
+  (require 'init-func)
+  (require 'init-packages)
+  (require 'init-ui)
+  (require 'init-better-defaults)
+  (require 'init-org)
+  (require 'init-keybindings)
+
+  (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
+  (load-file custom-file)
+
+#+END_SRC
