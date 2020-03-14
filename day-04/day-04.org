@@ -103,45 +103,7 @@
   (require 'ob-tangle)
   (org-babel-load-file (expand-file-name "vincent.org" user-emacs-directory))
 #+END_SRC
-- just like this
-  + vincent.org
-#+BEGIN_SRC organize
-* Emacs文学编程
+- See more in `vincent.org` and `init.el`
 
-** 初始化所有的Package
-#+BEGIN_SRC emacs-lisp
-  (package-initialize)
-
-#+END_SRC
-
-** 配置LoadPath
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/lisp")
-
-  (require 'init-func)
-  (require 'init-packages)
-  (require 'init-ui)
-  (require 'init-better-defaults)
-  (require 'init-org)
-  (require 'init-keybindings)
-
-  (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
-  (load-file custom-file)
-
-#+END_SRC
-  + init.el
-#+BEGIN_SRC emacs-lisp
-
-  ;; Added by Package.el.  This must come before configurations of
-  ;; installed packages.  Don't delete this line.  If you don't want it,
-  ;; just comment it out by adding a semicolon to the start of the line.
-  ;; You may delete these explanatory comments.
-  ;;
-  ;; Customize settings.
-
-  (require 'org-install)
-  (require 'ob-tangle)
-  (org-babel-load-file (expand-file-name "vincent.org" user-emacs-directory))
-
-#+END_SRC
 ** Exercise
+
