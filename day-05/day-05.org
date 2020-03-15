@@ -73,8 +73,43 @@
 - refer: https://github.com/magnars/js2-refactor.el/tree/d4c40b5fc86d3edd7c6a7d83ac86483ee1cb7a28
 
 ** occur and imenu
+*** improve iccur
+#+BEGIN_SRC emacs-lisp
+  ;; Do What I Mean
+  (defun occur-dwim ()
+    "Call `occur' with a sane default."
+    (interactive)
+    (push (if (region-active-p)
+	      (buffer-substring-no-properties
+	       (region-beginning)
+	       (region-end))
+	    (let ((sym (thing-at-point 'symbol)))
+	      (when (stringp sym)
+		(regexp-quote sym))))
+	  regexp-history)
+    (call-interactively 'occur))
+
+  (global-set-key (kbd "M-s o") 'occur-dwim)
+
+#+END_SRC
+
+*** improve imenu
+- List all indexes on current buffer
+- refer to: counsel-imenu
 
 ** wrap region mode, expand-region, and iedit-mode
+
+*** expand-region
+- refer to: https://github.com/magnars/expand-region.el/tree/ea6b4cbb9985ddae532bd2faf9bb00570c9f2781
+- default keybindings is C-+
+  1) +: expakd again
+  2) -: contract
+  3) 0: reset
+
+*** iedit
+- You can edit multiple areas at the same time
+- refer: https://github.com/victorhge/iedit/tree/e2c100cdd67b7d82835d281ac2cd1bf4f374bc8f
+- M-x iedit-mode or use C-;
 
 ** Bonus Time. Org export
 
