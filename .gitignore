@@ -6,3 +6,5 @@ recentf
 abbrev_defs
 .git
 .DS_Store
+*.tex
+*.pdf
