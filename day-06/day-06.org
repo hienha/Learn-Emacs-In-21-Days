@@ -1,0 +1,72 @@
+* Spacemacs Rocks Season 2(day-06)
+
+** 1. Bonus Time -- Org-mode
+
+ - use org-capture to take notes
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-capture-templates
+	'(("t" "Todo" entry (file+headline "~/.emacs.d/gtd.org" "工作安排与进展")
+	   "* TODO [#B] %?\n %i\n"
+	   :empty-lines 1)))
+
+#+END_SRC
+
+- Further reading: http://orgmode.org/manual/Capture.html
+
+*** Install org pomodoro to trace my time
+- C-c a a open org-agenda mode
+- M-x org-pomodoro
+
+** 2. Clean up confegs
+- move keybindings into one place
+- make C-n and C-p to select company canditate
+
+#+BEGIN_SRC emacs-lisp
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+#+END_SRC
+
+** 3. Batch Rename Files
+
+- C-x d goto a directory
+- Press `C-x C-q' in dired mode
+- use expand-region(C-+) and ident batch change file
+- use iedit-mode(M-s e) to rename file and C-c C-c to exit
+
+** 4. Search and replace
+- at fires, you should install ag
+- search speedO ag > pt > ack > grep
+#+BEGIN_SRC sh
+  # Mac
+  brew instaii the_silver_searcher
+  # Ubuntu
+  apt install silversearcher-ag
+#+END_SRC
+
+** 5. Show javascript errors with flycheck
+- flycheck-checkers
+#+BEGIN_SRC emacs-lisp
+  ;; Flycheck mode only in js2mode
+  (add-hook 'js2-mode-hook 'flycheck-mode)
+
+#+END_SRC
+- eslint
+
+** 6. Snippets and auto snippet
+
+#+BEGIN_SRC emacs-lisp
+  ;; snippet
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+#+END_SRC
+
+** 7. Exercise
+
+- give `helm-swoop' package a try: https://github.com/ShingFukuyama/helm-swoop
+- give `org-mac-link' package a try: https://melpa.org/#/org-mac-link
