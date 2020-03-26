@@ -18,7 +18,7 @@
 - C-c a a open org-agenda mode
 - M-x org-pomodoro
 
-** 2. Clean up confegs
+** 2. Clean up configs
 - move keybindings into one place
 - make C-n and C-p to select company canditate
 
@@ -40,7 +40,7 @@
 
 ** 4. Search and replace
 - at fires, you should install ag
-- search speedO ag > pt > ack > grep
+- search speed: ag > pt > ack > grep
 #+BEGIN_SRC sh
   # Mac
   brew instaii the_silver_searcher
