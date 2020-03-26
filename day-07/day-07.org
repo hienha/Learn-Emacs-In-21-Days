@@ -132,7 +132,30 @@
   + SPC-; comment or uncomment current line
   + SPC-cp comment or uncomment paragraphs
 
+*** Made some modes to use emacs-state
+- new version need'nt to do this
+#+BEGIN_SRC emacs-lisp
+  (dolist (mode '(ag-mode
+		  flycheck-error-list-mode
+		  git-rebase-mode))
+    (add-to-list 'evil-emacs-state-modes mode))
+#+END_SRC
+
+*** binding h/j/k/l keys
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'occur-mode-hook
+	    (lambda ()
+	      (evil-add-hjkl-bindings occur-mode-map 'emacs
+		(kbd "/")          'evil-search-forward
+		(kbd "n")          'evil-search-next
+		(kbd "N")          'evil-search-previous
+		(kbd "C-d")        'evil-scroll-down
+		(kbd "C-U")        'evil-scroll-up)))
+#+END_SRC
+
 ** Which key
+- install: M-x package-install which-key
+- configure: Popup side window on bottom. This is the current default. To restore this setup use `(which-key-setup-side-window-bottom)`
 
 ** Design your key bindings
 
