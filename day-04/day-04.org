@@ -8,7 +8,7 @@
    - autoload
 
 ** Better defaults
-   - indent-region or buffer
+   - indent-region or buffer(the other editor alias to Reformatter Code)
    #+BEGIN_SRC emacs-lisp
   (defun indent-buffer ()
     "Indent the current visited buffer"
