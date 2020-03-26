@@ -82,6 +82,18 @@
 
 #+END_SRC
 
+*** evil-surround
+- install
+  + M-x package-refresh-contents RET M-x package-install RET evil-surround RET
+  + M-x package-install RET use-package
+  + referinces: https://github.com/emacs-evil/evil-surround/tree/9b0b17f06cef9bac81ee4800d121265e54718a17
+- configure
+    #+BEGIN_SRC emacs-lisp
+      (use-package evil-surround
+	:ensure t
+	:config
+	(global-evil-surround-mode 1))
+    #+END_SRC
 ** Which key
 
 ** Design your key bindings
