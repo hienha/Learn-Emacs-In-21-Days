@@ -155,7 +155,9 @@
 
 ** Which key
 - install: M-x package-install which-key
-- configure: Popup side window on bottom. This is the current default. To restore this setup use `(which-key-setup-side-window-bottom)`
+- configure:
+  * Popup side window on bottom. This is the current default. To restore this setup use `(which-key-setup-side-window-bottom)`
+  * M-x customize-group RET which-key "Which Key Frame Max Height: 60"
 
 ** Design your key bindings
 
