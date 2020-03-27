@@ -1,0 +1,87 @@
+* Spacemacs Rocks Season 2(Day-09)
+
+Topic: Macro and Use-package
+
+** What is macro?
+
+Code which generate code?
+
+#+BEGIN_SRC emacs-lisp
+  (defmacro inc (var)
+    (list 'setq var (list '1+ var)))
+
+  (setq my-var 1)
+  (macroexpand '(inc my-var))
+#+END_SRC
+
+Write macro is almost the same as writing function in elisp
+
+*** What's the different between function and macro?
+*** Evaluation: the macro arguments are the actual expressions appearning in the macro call.
+*** Expansion: the value returned by the macro body is an alternate Lisp expression, also known as the expansion of the macro
+*** Examples
+
+back quote matters.
+
+#+BEGIN_SRC emacs-lisp
+  (sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (defun my-print (number)
+    (message "This is a number: %s" number))
+
+  (my-print 2)
+  (my-print (+ 2 3))
+
+  ;; ===
+  ;; === back quote
+  ;; ===
+  (defmacro my-print-mac (number)
+    `(message "%s" ,number))
+
+  (my-print-mac 2)
+  (my-print-mac (+ 2 3)) ;; ok
+
+
+  (defmacro inc (var)
+    (list 'setq var (list '1+ var)))
+
+  (setq my-var 2)
+  (inc my-var)
+
+  (defmacro inc-2 (var1 var2)
+    (list 'progn (list 'inc var1) (list 'inc var2)))
+
+  (macroexpand '(inc-2 my-var my-var))
+  (macroexpand-all '(inc-2 my-var my-var))
+
+#+END_SRC
+
+** Use-package and basic usage
+*** A more safe require
+*** Group config into ine place
+*** Autoload and bind keys easily
+*** Make your config load faster
+*** And more? Spacemacs use it a lot
+
+** Bonus Time
+
+- pretty print the lisp Object
+#+BEGIN_SRC emacs-lisp
+  (pp (macroexpand '(use-package company-mode)))
+
+#+END_SRC
+- fuck your brain?
+#+BEGIN_SRC emacs-lisp
+  (defmacro defsynonym (old-name new-name)
+    `(defmacro ,new-name (&rest args)
+       `(, ',old-name ,@args)))
+
+#+END_SRC
+   
+more discussion: https://emacs-china.org/t/lisp/357
+
+** Reference
+
+Read more about macro: https://www/gnu.org/software/emacs/manual/html_node/elisp/Macros.html
