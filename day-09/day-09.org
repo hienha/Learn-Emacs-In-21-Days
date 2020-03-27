@@ -84,4 +84,4 @@ more discussion: https://emacs-china.org/t/lisp/357
 
 ** Reference
 
-Read more about macro: https://www/gnu.org/software/emacs/manual/html_node/elisp/Macros.html
+Read more about macro: https://www.gnu.org/software/emacs/manual/html_node/elisp/Macros.html
