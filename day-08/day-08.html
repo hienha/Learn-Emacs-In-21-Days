@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-27 Fri 13:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="vincent" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5804af6">1. Spacemacs Rocks Season 2 (day-08)</a>
+<ul>
+<li><a href="#orge92bddc">1.1. elpa mirrors</a></li>
+<li><a href="#orge9d8e87">1.2. Cask and pallet</a>
+<ul>
+<li><a href="#orgb42a2e3">1.2.1. Install cask</a></li>
+<li><a href="#org005f855">1.2.2. Install pallet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5804af6" class="outline-2">
+<h2 id="org5804af6"><span class="section-number-2">1</span> Spacemacs Rocks Season 2 (day-08)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge92bddc" class="outline-3">
+<h3 id="orge92bddc"><span class="section-number-3">1.1</span> elpa mirrors</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/elpa/">https://mirrors.tuna.tsinghua.edu.cn/help/elpa/</a></li>
+<li><a href="https://github.com/emacs-china/elpa">https://github.com/emacs-china/elpa</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge9d8e87" class="outline-3">
+<h3 id="orge9d8e87"><span class="section-number-3">1.2</span> Cask and pallet</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgb42a2e3" class="outline-4">
+<h4 id="orgb42a2e3"><span class="section-number-4">1.2.1</span> Install cask</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="https://github.com/cask/cask">https://github.com/cask/cask</a></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #6272a4;"># </span><span style="color: #6272a4;">if your emacs installeb by brew, not recommand to use this way</span>
+brew install cask
+
+<span style="color: #6272a4;"># </span><span style="color: #6272a4;">universal install</span>
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>add `export PATH="<i>Users/changfeng</i>.cask/bin":$PATH` to ~/.zshenv</li>
+<li>delete ~/.emacs.d/.cask directory</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org005f855" class="outline-4">
+<h4 id="org005f855"><span class="section-number-4">1.2.2</span> Install pallet</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>referinces: <a href="https://github.com/rdallasgray/pallet/tree/b8d0df1883224a371ac0a3bc9b9c1c4dc61e6ac0">https://github.com/rdallasgray/pallet/tree/b8d0df1883224a371ac0a3bc9b9c1c4dc61e6ac0</a></li>
+<li>M-x package-refresh-contents RET M-x package-install RET pallet</li>
+<li>M-x pallet-mo(require 'cask "&lt;path-to-cask&gt;/cask.el")</li>
+</ul>
+<p>
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)de
+</p>
+<ul class="org-ul">
+<li>M-x pallet-init</li>
+<li>M-x pallet-install 
+<ul class="org-ul">
+<li>if execute failed, you can manual copy ~/.emacs.d/elpa to ~/.emacs.d/.cask, after this you can delete ~/.emacs.d/elpa directory</li>
+<li>if has some dependences, just only copy from original `elpa` to ~/.emacs.d/.cask/26.3/elpa</li>
+</ul></li>
+<li>Finally, make sure the following lines are in your init.el(in my case is: ~/.emacs.d/vincent.org), before any packages are required:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #bd93f9; font-size: 110%; font-weight: bold;">** Pallet</span>
+<span style="color: #6272a4;">#+BEGIN_SRC emacs-lisp</span>
+<span style="color: #ffb86c;">(</span><span style="color: #ff79c6; font-weight: bold;">require</span><span style="color: #ffb86c;"> '</span><span style="color: #8be9fd;">cask</span><span style="color: #ffb86c;"> </span><span style="color: #f1fa8c;">"~/.cask/cask.el"</span><span style="color: #ffb86c;">)</span>
+<span style="color: #ffb86c;">(cask-initialize)</span>
+<span style="color: #ffb86c;">(</span><span style="color: #ff79c6; font-weight: bold;">require</span><span style="color: #ffb86c;"> '</span><span style="color: #8be9fd;">pallet</span><span style="color: #ffb86c;">)</span>
+<span style="color: #ffb86c;">(pallet-mode t)</span>
+
+<span style="color: #6272a4;">#+END_SRC</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>comment or delete your `init-packages.el` some configure, like this</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #ff79c6; font-weight: bold;">when</span> (&gt;= emacs-major-version 24)
+  (<span style="color: #ff79c6; font-weight: bold;">require</span> '<span style="color: #8be9fd;">package</span>)
+  (<span style="color: #ff79c6; font-weight: bold;">setq</span> package-archives '((<span style="color: #f1fa8c;">"gnu-tuna"</span>    .  <span style="color: #f1fa8c;">"http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"</span>)
+                           (<span style="color: #f1fa8c;">"melpa-tuna"</span>  .  <span style="color: #f1fa8c;">"http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"</span>))))
+
+<span style="color: #6272a4;">;; </span><span style="color: #6272a4;">add whatever package you want here</span>
+(<span style="color: #ff79c6; font-weight: bold;">defvar</span> <span style="color: #f8f8f2; font-weight: bold;">vincent/packages</span> '(
+                           company
+                           dracula-theme
+                           monokai-theme
+                           hungry-delete
+                           counsel
+                           swiper
+                           smartparens
+                           exec-path-from-shell
+                           js2-mode
+                           nodejs-repl
+                           popwin
+                           reveal-in-osx-finder
+                           web-mode
+                           js2-refactor
+                           expand-region
+                           iedit
+                           org-pomodoro
+                           helm-ag
+                           flycheck
+                           auto-yasnippet
+                           base16-theme
+                           snazzy-theme
+                           colemak-evil
+                           evil-colemak-basics
+                           evil
+                           evil-leader
+                           evil-surround
+                           evil-nerd-commenter
+                           which-key
+                           ) <span style="color: #6272a4;">"Default packages"</span>)
+(<span style="color: #ff79c6; font-weight: bold;">setq</span> package-selected-packages vincent/packages)
+
+(<span style="color: #ff79c6; font-weight: bold;">defun</span> <span style="color: #50fa7b; font-weight: bold;">vincent/packages-installed-p</span> ()
+  (<span style="color: #ff79c6; font-weight: bold;">loop</span> for pkg in vincent/packages
+        when (not (package-installed-p pkg)) do (<span style="color: #ff79c6; font-weight: bold;">return</span> nil)
+        finally (<span style="color: #ff79c6; font-weight: bold;">return</span> t)))
+
+(<span style="color: #ff79c6; font-weight: bold;">unless</span> (vincent/packages-installed-p)
+  (message <span style="color: #f1fa8c;">"%s"</span> <span style="color: #f1fa8c;">"Refreshing package database..."</span>)
+  (package-refresh-contents)
+  (<span style="color: #ff79c6; font-weight: bold;">dolist</span> (pkg vincent/packages)
+    (<span style="color: #ff79c6; font-weight: bold;">when</span> (not (package-installed-p pkg))
+      (package-install pkg))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: vincent</p>
+<p class="date">Created: 2020-03-27 Fri 13:12</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
