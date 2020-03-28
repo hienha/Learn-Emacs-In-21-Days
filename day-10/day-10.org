@@ -1,0 +1,47 @@
+* Spacemacs Rocks Season 2(Day 10)
+
+Topic `company-mode' and `auto-completion'
+
+** Fix previous issuss
+
+*** Not use packages's latest version
+- use Cask install specific version package
+  + edic ~/.emacs.d/Cask, example
+  #+BEGIN_SRC emacs-lisp
+    ;; usage example
+    ;; :git specific the address of project
+    ;; :ref is the commit id
+    (depends-on "dracula-theme" :git "https://github.com/dracula/emacs/" :ref "d145ed5")
+  #+END_SRC
+  + rm  .cask/26.3/elpa/dracula-theme-*
+  + at `~/.emacs.d/` run `Cask install` after that you can see `.cask/26.3/elpa/dracula-theme-20200321.1817/` the directory date format corresponding to package release time.
+*** exec-path-from-shell warnings when Emacs startup
+
+- Recommand method to fix this issue
+
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :ensure t
+    :if (and (eq system-type 'darwin) (display-graphic-p))
+    :config
+    (progn
+      (when (string-match-p "/zsh$" (getenv "SHELL"))
+	;; Use a non-interactive login shell. A login shell, because my
+	;; environment variables are mostly set in `.zshenv'.
+	(setq exec-path-from-shell-arguments '("-l")))
+
+      (exec-path-from-shell-initialize)
+      )
+    )
+#+END_SRC
+
+** How company-mode worke
+
+** Why my company sucks
+
+** Group backend
+
+** Write a simple company backend
+
+** References
+
