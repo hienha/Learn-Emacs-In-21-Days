@@ -21,9 +21,11 @@ Topic `company-mode' and `auto-completion'
 
 #+BEGIN_SRC emacs-lisp
   (use-package exec-path-from-shell
-    :ensure t
     :if (and (eq system-type 'darwin) (display-graphic-p))
+    :ensure t
     :config
+    ;; you should config 'melpa-stable' source in ~/.emacs.d/Cask
+    :pin melpa-stable
     (progn
       (when (string-match-p "/zsh$" (getenv "SHELL"))
 	;; Use a non-interactive login shell. A login shell, because my
@@ -36,12 +38,56 @@ Topic `company-mode' and `auto-completion'
 #+END_SRC
 
 ** How company-mode worke
+- backend for the completion sources and front end to display the candidates
+- C-h v company-backend
+- try company-file and company-ispell use M-x
+- C-h C-f to vier the backend implementation
 
 ** Why my company sucks
+- Python anaconda-mode not works
+  + M-x package-install anaconda-mode
+  + M-x package-install company-anaconda
+  + in your edit buffer enable `M-x anaconda-mode`
+  + See some info in `*anaconda-mode*` buffer
+    - could install `jedo' and `service-factory' use this command
+      #+BEGIN_SRC shell
+	# install `jedi'
+	git clone https://github.com/davidhalter/jedi
+	cd jedi
+	git submodule   update --ini
+	python setup.py sdist
+	cd dist
+	PYTHONPATH=$HOME/.emacs.d/anaconda-mode/0.1.13 easy_install -d $HOME/.emacs.d/anaconda-mode/0.1.13 -S $HOME/.emacs.d/anaconda-mode/0.1.13 -a -Z  jedi-0.17.0.tar.gz
+
+	# install `service-factory'
+	PYTHONPATH=$HOME/.emacs.d/anaconda-mode/0.1.13 easy_install -d $HOME/.emacs.d/anaconda-mode/0.1.13 -S $HOME/.emacs.d/anaconda-mode/0.1.13 -a -Z  service-factor
+
+	# in your ~/.emacs.d/anaconda-mode/0.1.13/ see some installed files
+	$ cd  ~/.emacs.d/anaconda-mode/0.1.13 
+	$ ls -1
+	__pycache__
+	easy-install.pth
+	jedi-0.17.0-py3.6.egg
+	parso-0.5.2-py3.6.egg
+	service_factory-0.1.6-py3.6.egg
+	site.py
+      #+END_SRC
+- Some backend require build with a server-client architecture: company-anaconda, company-jedi, company-ycmd, company-tern etc
+- At first, you should make sure the server side is working properly and then you want to make sure you use the wight backend
+- How to fix anaconda on Mac
+  + edit `~/.emacs.d/lisp/init-packages.el`, add this confid
+  #+BEGIN_SRC emacs-lisp
+    (add-hook 'python-mode-hook
+	      (lambda()
+		(set (make-local-variable 'company-backends) '((company-anaconda company-dabbrev-code) company-dabbrev))))
+
+  #+END_SRC
 
 ** Group backend
+- If you use want to use etags for completion and you should generate tags first and use company-etags backend
+- group company-babbrev-code and company-etags, add another company-babbrev backend ?
+- company-keywords for lua
+- sort by statistics
 
 ** Write a simple company backend
-
-** References
-
+- https://sixty-north.com/blog/writing-the-simplest-emacs-company-mode-backend
