@@ -1,0 +1,95 @@
+* Spacemacs Rocks Season 2 (day-11)
+
+Topic: Spacemacs introduction and installation
+
+** Why Spacemacs?
+1. You havf your own Emacs configuration and you have used it for a long time. My suggest: Try Spacemacs, use it and learn from it. Then consider to use Spacemacs daily or stick to your own Emacs config.
+2. It's bundle of meta configs, it's very easy to add/remove feature & packages. The default package system is poor.
+3. It's friendly for Vim users.(I'm not sure whether normal Emacs users like it or not.) But I know some people also use `Emacs` and `Hybrid` editing style.
+4. It's has a very nice UI(spaceline) and very active community. I know spaceline has some nasty bugs, but I still can't resist to use it... it's beautiful.
+
+** Start to use Spacemacs today
+
+*** Installation
+    - choose editing style, I choose Vim
+    - Choose completion style, helm or ivy. We choose ivy and helm
+    - Choose distribution, spacemacs and spacemacs-base
+    - make your configs in `.spacemacs.d` folder and use github to managed it
+      #+BEGIN_SRC sh
+        mkdir ~/.spacemacs.d
+        mv ~/.spacemacs ~/.spacemacs.d/init.el
+      #+END_SRC
+
+*** Add some built-in layers
+    - better defaults osx github dit color markdown org javascript
+    - Recommand choices
+      #+BEGIN_SRC emacs-lisp
+        ivy
+        auto-completion
+        better-defaults
+        emacs-lisp
+        git
+        helm
+        markdown
+        org
+        spell-checking
+        syntax-checking
+      #+END_SRC
+
+*** Little treak
+    - fullscreen
+    - settings for fullscreen in ~/.spacemacs.d/init.el just like this
+      #+BEGIN_SRC emacs-lisp
+        ;; If you wanna mac-style fullscreen, toggle to `t'
+        dotspacemacs-fullscreen-at-startup nil
+
+        ;; (default nil) (Emacs 24.4+ only)
+        dotspacemacs-maximized-at-startup t
+      #+END_SRC
+
+*** Sxclude some unwanted packages
+    - evil-lisp-state
+    - spray
+    - doc-view 
+    - lorem-ipsum
+
+*** Easy way to add packages with default package settings
+    - for example
+      #+BEGIN_SRC emacs-lisp
+        dotspacemacs-additional-packages '(youdao-dictionary)
+      #+END_SRC
+
+*** Add your own configs in `use-config` (Port the previous configs to Spacemacs)
+
+*** Fix helm tramp mode issue
+    #+BEGIN_SRC emacs-lisp
+      (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+    #+END_SRC
+
+*** Make customize-group configs in its own file
+
+  #+BEGIN_SRC emacs-lisp
+    (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+    (load custom-file 'no-error 'no-message)
+  #+END_SRC
+
+*** Seacsmacs startup is too slow
+    - edit your ~/.spacemacs.d/init.el just like this
+    #+BEGIN_SRC emacs-lisp
+      (defun dotspacemacs/user-init ()
+        (setq configuration-layer-elpa-archives
+              '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+                ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+
+        (setq tramp-ssh-controlmaster-options
+              "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+        )
+    #+END_SRC
+
+** Colemak Keyboard Layout in Spacemacs.
+- refer: https://github.com/syl20bnr/spacemacs/tree/develop/layers/%2Bintl/keyboard-layout#colemak
+- needs check out to `develop' branch
+- But I think `colemak-evil' is the best choice.
+
+
