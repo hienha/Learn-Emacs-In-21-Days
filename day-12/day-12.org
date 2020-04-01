@@ -3,5 +3,14 @@
 
 ** More tweaks of the built-in layers
    - Config variables (Chinese layer)
+   - use `Ctrl-e' to code end first
+   #+BEGIN_SRC emacs-lisp
+      dotspacemacs-configuration-layers
+     '(
+       ... ...
+       (better-defaults :variables better-defaults-move-to-end-of-code-first t)
+       ... ...
+       )
+   #+END_SRC
 
 ** Write your first layer
