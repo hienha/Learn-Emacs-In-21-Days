@@ -1,0 +1,63 @@
+* Spacemacs Rocks Season 2 (day-14)
+
+Topic: File and buffer operations
+
+** Talk the difference between the configs of mine and spacemacs
+
+** File related operations
+   - SPC-p-f (find a file in current project, it looks like the Ctrl-p plugins in Vim), do some hack to enhance the SPC-p-f
+     #+BEGIN_SRC emacs-lisp
+       (defun vincent/open-file-with-projectile-or-counsel-git ()
+         (interactive)
+         (if (vincent/vcs-project-root)
+             (counsel-git)
+           (if (projectile-project-p)
+               (projectile-find-file)
+             (ido-find-file))))
+     #+END_SRC
+     + If it's a git repository, I use `counsel-git' to find file.
+     + Why not `projectile', Because I think ivy-mode is much faster. If it is in a project. say it has `.projectile' file in your project's root. Otherwise, you `ido-find-file'
+   - =SPC-f-f=:     to find a file start from the current directory
+   - =SPC-f-L=:     find the file across the whole Mac system
+   - =SPC-f-l=:     find file literally(I also enhance this func with ffap)
+   - =SPC-f-h=:     find file in hex mode(I also enhance this func with ffap)
+   - =SPC-f-o=:     open with external program
+   - =SPC-f-E=:     sudo edit
+   - =SPC-f-D=:     delete current file and buffer
+   - =SPC-f-j=:     open the current file's dired mode
+   - =SPC-f-r=:     find the recents file with ivy
+   - =SPC-f-R=:     Rename the current file
+   - =SPC-f-v=:     add local variables
+   - =SPC-f-y-y=:   yank current buffer's full path 
+   - =SPC-f-a-d=:   find the current visited directory with fast.
+   - =SPC-f-C-d/u=: covert file encoding between unix and dos
+   - =SPC-f-e-d=:   find the ~/.spacemacs or ~/.spacemacs.d/init.el file
+   - =SPC-f-e-i=:   find the ~/.emacs or ~/.emacs.d/init.el init file
+   - =SPC-f-e-l=:   helm locate library file
+   - =SPC-f-c=:     copy file
+   - =SPC-f-b=:     show bookmarks
+   - =SPC-f-s/S=:   save buffers
+     
+** Buffer related operations
+   - =SPC-b-.=: buffer micro state(hydra)
+   - =SPC-b-b=: switch buffers, i rebind it to ivy-switch-buffer, because I could see recent use file in buffer
+   - =SPC-b-d=: kill a buffer
+   - =SPC-b-B=: global list buffers
+   - =SPC-b-h=: go to home
+   - =SPC-b-k=: kill matching buffers
+   - =SPC-b-N=: new empty buffer
+   - =SPC-b-n=: Next buffer
+   - =SPC-b-p=: Previous buffer
+   - =SPC-b-r=: helm-recentf
+   - =SPC-b-R=: safe revert buffer
+   - =SPC-b-m=: Messages buffer
+   - =SPC-b-s=: Scratch buffer
+   - =SPC-b-w=: toggle buffer read-only
+   - =SPC-b-Y=: copy the whole buffer to clipboard, the content could be used in other programs
+   - =SPC-b-P=: paste to the whole buffer
+   - =SPC-<tab>=: switch between the current buffer and the last opened buffer.
+
+** Sometimes I also use the `dired' mode to do all the files operations
+   - back to previous section
+
+** Happy hacking!
