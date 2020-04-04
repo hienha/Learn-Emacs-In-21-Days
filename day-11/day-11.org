@@ -11,6 +11,7 @@ Topic: Spacemacs introduction and installation
 ** Start to use Spacemacs today
 
 *** Installation
+**** 
     - choose editing style, I choose Vim
     - Choose completion style, helm or ivy. We choose ivy and helm
     - Choose distribution, spacemacs and spacemacs-base
@@ -19,6 +20,9 @@ Topic: Spacemacs introduction and installation
         mkdir ~/.spacemacs.d
         mv ~/.spacemacs ~/.spacemacs.d/init.el
       #+END_SRC
+
+**** Install On Widows
+     - references: https://www.christopherhoelter.com/post/spacemacs-windows-setup/
 
 *** Add some built-in layers
     - better defaults osx github dit color markdown org javascript
@@ -92,4 +96,19 @@ Topic: Spacemacs introduction and installation
 - needs check out to `develop' branch
 - But I think `colemak-evil' is the best choice.
 
+** FAQ
+
+*** zsh:1: command not found: git zsh:1: command not found:
+    - In MacOSX: references configuration $PATH in /etc/paths
+    - customize-group --> execute --> "Shell File Name" --> "/bin/bash"
+      + not use zsh anymore, use '/bin/zsh' can avoid this issue.
+    - modify ~/.spacemacs.d/custom.el
+      #+BEGIN_SRC emacs-lisp
+        '(package-selected-packages
+          (quote
+           (yapfify ya... ...to-compile aggressive-indent ace-link ace-jump-helm-line)))
+        '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
+        ;; add this line
+        '(shell-file-name "/bin/bash"))
+      #+END_SRC
 
