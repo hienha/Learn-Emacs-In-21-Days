@@ -61,3 +61,38 @@ Topic: File and buffer operations
    - back to previous section
 
 ** Happy hacking!
+
+** FAQ
+
+*** helm-locate illegal option --b
+    - when we use `SPC-p-L' search in whole system path, got this error some like
+      #+BEGIN_SRC emacs-lisp
+        ,* Exit with code 1, no result found, command line was:
+
+        locate -b -i \[\^a\]\*a\[\^b\]\*b\[\^c\]\*clocate: illegal option -- b
+        usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+        default database: `/var/db/locate.database' or $LOCATE_PATH
+      #+END_SRC
+    - customize-group --> helm-locate --> "Helm Locate Fuzzy Match: toggle off"
+    - when you to do that operations, you can see your `custom.el' has little changes.
+      #+BEGIN_SRC emacs-lisp
+        (custom-set-variables
+         ;; custom-set-variables was added by Custom.
+         ;; If you edit it by hand, you could mess it up, so be careful.
+         ;; Your init file should contain only one such instance.
+         ;; If there is more than one, they won't work right.
+         '(ansi-color-faces-vector
+           [default default default italic underline success warning error])
+         '(ansi-color-names-vector
+           ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+         ;; =====
+         ;; ===== changed is here
+         ;; =====
+         '(evil-want-Y-yank-to-eol nil)
+         '(exec-path
+           (quote
+            ("/usr/local/bin" "/Library/Frameworks/Python.framework/Versions/3.7/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/opt/X11/bin" "/usr/local/aria2/bin" "/usr/local/go/bin" "/Library/TeX/texbin" "/Applications/Wireshark.app/Contents/MacOS" "/Users/changfeng/.cask/bin" "/usr/local/texlive/2019/bin/x86_64-darwin")))
+         '(helm-locate-fuzzy-match nil)
+         '(hl-todo-keyword-faces
+        ... ...
+      #+END_SRC

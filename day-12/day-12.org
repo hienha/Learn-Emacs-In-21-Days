@@ -14,3 +14,55 @@
    #+END_SRC
 
 ** Write your first layer
+
+*** Create layer command
+    - configuration-layer/create-layer
+    - Choose `Another directory…’
+    - I choose in `~/.spacemacs.d’ (NOTE: don’t add trailing slash ‘/‘)
+    - You can add a README.org file
+
+*** Write layer's package.el file
+    - reference for
+    #+BEGIN_SRC emacs-lisp
+      (defconst vincent-packages
+        '(youdao-dictionary
+          company
+          (occur-mode :location built-in)))
+
+      (defun vincent/init-youdao-dictionary()
+        (use-package youdao-dictionary
+          :defer t
+          :init
+          (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)))
+
+      (defun vincent/post-init-company()
+        (setq company-minimum-prefix-length 1))
+
+      (defun vincent/pre-init-occur-mode()
+        (evilified-state-evilify-map occur-mode-map
+          :mode occur-mode))
+
+    #+END_SRC
+
+*** load your layer
+    - need update `~/.spacemacs.d/init.el' in some place like
+    #+BEGIN_SRC emacs-lisp
+         dotspacemacs-configuration-layers
+         '(
+
+           ... ...
+         
+           vincent
+           )
+    #+END_SRC
+      
+
+** FAQ
+
+*** (Spacemacs) Warning: Unknown layer vincent declared in dotfile.
+    - should be customize configuration layer path, e.g.
+
+    #+BEGIN_SRC emacs-lisp
+      dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
+    #+END_SRC
+

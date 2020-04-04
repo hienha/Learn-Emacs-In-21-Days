@@ -2,6 +2,25 @@
   Topic: More tweaks of your own layers
 
 ** Fix ivy 0.8 issues
+   - in new version has been no any bugs more about ivy
+
 ** post-init and pre-init
+   - post-init example
+   #+BEGIN_SRC emacs-lisp
+     (defconst vincent-packages
+       '(youdao-dictionary
+         company
+         (occur-mode :location built-in))
+       )
+     (defun vincent/post-init-company()
+       (setq company-minimum-prefix-length 1))
+
+     (defun vincent/pre-init-occur-mode()
+       (evilified-state-evilify-map occur-mode-map
+         :mode occur-mode))
+   #+END_SRC
+
+   - pre-init: usually you need'nt to do this anymore
+
 ** location: bluitin, elpa and github
 ** layers.el
