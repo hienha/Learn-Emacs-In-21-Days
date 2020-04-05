@@ -7,7 +7,7 @@ Topic: how to survive in Spacemacs
 
 ** Emacs don't behavior like the other editors I used before
    - references: https://emacs-china.org/t/emacs/905
-   - Some defaults are worth learning, but some are not, You can asked from eamcs-china.org
+   - Some defaults are worth learning, but some are not, You can sked from eamcs-china.org
    - Stick to the defaults will help in the long run
    - Mac is the best platform, You could easily adapt yourself to Emacs (CMD A/C/X)
 
@@ -41,9 +41,11 @@ Topic: how to survive in Spacemacs
        profiler-report
      #+END_SRC
    - My Emacs start-up time is too long
-     #+BEGIN_SRC emacs-lisp
-       /Applications/Emacs.app/Contents/MacOS/Emacs --timed-requires --profile
-     #+END_SRC
+     1) use this command to start-up emacs
+        #+BEGIN_SRC emacs-lisp
+          /Applications/Emacs.app/Contents/MacOS/Emacs --timed-requires --profile
+        #+END_SRC
+     2) when emacs start-up fully, use `SPC-b-b' to switch `*load-times*' buffer to see what package is loaded too long.
 
 ** I have lots unknown of Emacs...
 1. Take it easy and don't panic, Emacs is a lifelong text editor
