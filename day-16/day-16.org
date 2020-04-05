@@ -1,0 +1,22 @@
+* Spacemacs Rocks Season 2 (day-16)
+
+Topic: ctags and company mode for auto completion
+
+** Why use ctags for auto completion
+1. Some dynamic languages don't support syntax-aware auto completion, For example
+   - Javascript (though tern-mode could do some sort of auto completion, but the configuration is complex and it's not always reliable)
+   - Lua use ctags for C/C++, use Emacs writing and navigating C/C++ code, but use IDE to debug and profiling.
+2. ctags is very fast and reliable
+
+** How to configure ctags and auto completion?
+1. ctags -eR . company-etags (company-etags can't used for every major-mode)
+
+** How to use ctags effectively?
+   1. project wide configurations for auto generating the tags file
+   2. configure the ctags rules for generate more tags
+   3. use etags-select to quickly navigate a large code base
+
+** Final thoughts
+
+- when syntax-aware auto completion is not available, consider to use ctags instead.
+ 
