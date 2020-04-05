@@ -1,4 +1,4 @@
-* Spacemacs Rocks Season 2 (day-15)
+* S layouts-enable-autosave nil layouts-autosave-delay 300) layouts-enable-autosave nil layouts-autosave-delay 300) layouts-enable-autosave nil layouts-autosave-delay 300) layouts-enable-autosave nil layouts-autosave-delay 300) layouts-enable-autosave nil layouts-autosave-delay 300) layouts-enable-autosave nil layouts-autosave-delay 300)pacemacs Rocks Season 2 (day-15)
 
 Topic: Window, project and layout operations
 
@@ -40,3 +40,4 @@ Topic: Window, project and layout operations
 
 
    For more about the project related operations, dig into it with which-key.
+   
