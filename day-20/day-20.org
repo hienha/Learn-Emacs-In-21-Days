@@ -1,0 +1,11 @@
+* Spacemacs Rocks Season 2 (day-20)
+
+Topic: Revisit my spacemacs config
+
+** The new layer design
+   1. One aggregate layer with five other layer
+   2. The generic keybindings are all in one place
+   3. keep use `user-config` minimal
+   4. update constantly with the upstream
+
+** Revisit my configs layes by layes

@@ -1,0 +1,18 @@
+* Spacemacs Rocks Season 2 (day-21)
+
+Topic: how to master Emacs in one year?
+
+** Learn essential elisp
+   - Introduction to elisp Emacs manual
+
+** Evolve with the community
+   reddit/r/emacs eamcs-china.org twitter/emacs github/spacemacs/prelude/purcell/abo-abo RSS
+
+** Read the source code of daily used packages
+   - try to debug some elisp function
+   - get idea of how to do things in emacs
+   - Learn the configuration possibilities of each package
+
+** Keep using and shaping your bf loved tools
+
+- Happy hacking
